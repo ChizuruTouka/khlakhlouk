@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Khla Khlouk</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <style>
+      .selected {
+        width: 80px; 
+        height: 30px; 
+        background-color: red; 
+        position: absolute;         
+        z-index: 1000; 
+        text-align: center; 
+        color: white;
+      }
+
+      .hovered {
+        width: 290px;
+        height: 200px;
+        background-color: black;
+        position: absolute;
+        z-index: 999;
+        opacity: 0%;
+        transition: 0.2s;
+      }
+
+      .hovered:hover {
+        cursor: pointer;
+        opacity: 20%;
+      }
+
+      @media only screen and (max-width: 600px) {
+        .hovered {
+          width: 50px;
+          height: 40px;
+        }
+
+        .selected {
+          width: 50px;
+          height: 20px;
+          font-size: -6rem;
+        }
+
+      }
+    </style>
+</head>
+<body>
+    <div class="container my-5">
+      <div class="card mx-auto" style="width: 75%;">
+        <!-- betting -->
+        <div class="card-body mx-auto">
+          <div class="row">
+            <div class="col-4">
+              <!-- select -->
+              <div class="rounded select one"></div>
+              <!-- hover -->
+              <div class="rounded hovered">one</div>
+                <div class="card" style="width: auto;">
+                    <img src="1.jpg" class="card-img-top" alt="khla">
+                </div>
+                
+            </div>
+            <div class="col-4">
+              <!-- select -->
+              <div class="rounded select two"></div>
+              <!-- hover -->
+              <div class="rounded hovered">two</div>
+                <div class="card" style="width: auto;">
+                    <img src="2.jpg" class="card-img-top" alt="khlouk">
+                    
+                  </div>
+            </div>
+            <div class="col-4">
+              <!-- select -->
+              <div class="rounded select three"></div>
+              <!-- hover -->
+              <div class="rounded hovered">three</div>
+                <div class="card" style="width: auto;">
+                    <img src="3.jpg" class="card-img-top" alt="morn">
+                    
+                  </div>
+            </div>
+            <div class="col-4">
+              <!-- select -->
+              <div class="rounded select four"></div>
+              <!-- hover -->
+              <div class="rounded hovered">four</div>
+                <div class="card" style="width: auto;">
+                    <img src="4.jpg" class="card-img-top" alt="pkong">
+                    
+                  </div>
+            </div>
+            <div class="col-4">
+              <!-- select -->
+              <div class="rounded select five"></div>
+              <!-- hover -->
+              <div class="rounded hovered">five</div>
+                <div class="card" style="width: auto;">
+                    <img src="5.jpg" class="card-img-top" alt="kdam">
+                    
+                  </div>
+            </div>
+            <div class="col-4">
+              <!-- select -->
+              <div class="rounded select six"></div>
+              <!-- hover -->
+              <div class="rounded hovered">six</div>
+                <div class="card" style="width: auto;">
+                    <img src="6.jpg" class="card-img-top" alt="trey">
+                    
+                  </div>
+            </div>
+        </div>
+
+
+        <div class="row">
+          <!-- result -->
+          <div class="col-xl-8 col-sm-12">
+            <div class="card" style="width: auto;">
+              <div class="card-body mx-auto">
+                <div class="row">
+                  <div class="col-4">
+                    <img src="1.jpg" class="img-thumbnail imgOne" alt="resuleone" width="180px">
+                  </div>
+                  <div class="col-4">
+                    <img src="1.jpg" class="img-thumbnail imgTwo" alt="resulttwo" width="180px">
+                  </div>
+                  <div class="col-4">
+                    <img src="1.jpg" class="img-thumbnail imgThree" alt="resultthree" width="180px">
+                  </div>
+                </div>
+                
+              </div>
+            </div>
+          </div>
+          <!-- button -->
+          <div class="col-xl-4 col-sm-12 mt-4">
+            <div class="d-grid gap-3">
+              <button class="btn btn-primary btnStart" type="button" onclick="spin()">ក្រឡុក</button>
+              <button class="btn btn-primary btnStop disabled" type="button" onclick="stop()">ឈប់</button>
+              <button class="btn btn-outline-danger type="button" onClick="refreshPage()">សារថ្មី</button>
+            </div>
+          </div>
+        </div>
+
+        </div>
+      </div>
+        
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+
+    <script>
+
+      function refreshPage(){
+          window.location.reload();
+      } 
+
+      var khlaKhlouk = document.querySelectorAll(".hovered").length;
+
+      let resultOne = document.querySelector(".imgOne");
+      let resultTwo = document.querySelector(".imgTwo");
+      let resultThree = document.querySelector(".imgThree");
+
+      let images = ["1.jpg", "2.jpg", "3.jpg", "4.jpg", "5.jpg", "6.jpg"];
+
+      let spinning;
+      //  spin
+      function spin() {
+
+        spinning = setInterval( function(){
+            let randomOne = Math.floor(Math.random()*images.length);
+            let randomTwo = Math.floor(Math.random()*images.length);
+            let randomThree = Math.floor(Math.random()*images.length);
+            resultOne.src = images[randomOne];
+            resultTwo.src = images[randomTwo];
+            resultThree.src = images[randomThree];
+          }, 20);
+
+          document.querySelector(".btnStop").classList.remove("disabled");
+          document.querySelector(".btnStart").classList.add("disabled");
+      }
+
+      function stop() {
+
+        clearInterval(spinning);
+
+        document.querySelector(".btnStop").classList.add("disabled");
+        document.querySelector(".btnStart").classList.remove("disabled");
+      }
+
+      for (var i = 0; i< khlaKhlouk; i++) {
+        document.querySelectorAll(".hovered")[i].addEventListener("click", function(){
+            var buttonChecked = this.innerHTML;
+           buttonAnimation(buttonChecked);
+
+        }); 
+      }
+ 
+      function buttonAnimation(selectedBet) {
+        var activeButton = document.querySelector("." + selectedBet);
+
+        if (activeButton.classList.contains("selected")) {
+          activeButton.classList.remove("selected");
+          activeButton.innerHTML = "";
+          
+        } else {
+          activeButton.classList.add("selected");
+          activeButton.innerHTML = "ចាក់";
+          
+        }
+
+        
+      }
+
+    </script>
+</body>
+</html>
