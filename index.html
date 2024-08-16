@@ -62,8 +62,8 @@
       }
 
       .hovered {
-        width: 400px;
-        height: 300px;
+        width: 290px;
+        height: 230px;
         position: absolute;
         background-color: white;
         z-index: 999;
@@ -74,6 +74,10 @@
       .hovered:hover {
         cursor: pointer;
         opacity: 20%;
+      }
+
+      .resize {
+        width: 75%;
       }
 
       @media only screen and (max-width: 600px) {
@@ -87,6 +91,10 @@
         .hovered {
           width: 130px;
           height: 100px;
+        }
+
+        .resize {
+          width: 100%;
         }
 
       }
@@ -105,13 +113,40 @@
     <div class="container my-5">
 
       <div class="row">
-        <div class="col-12">
-          <h1 class="display-5 fw-bold text-body-emphasis">Jak Khla Khlouk ot?</h1>
+        <div class="col-12 mb-2">
+          <button class="btn btn-dark float-end ms-2" onclick="return confirm('ចុចហើយវានឹងសារដើមទាំងអស់ ព្រមទេ?') && refreshPage()">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-counterclockwise" viewBox="0 0 16 24">
+              <path fill-rule="evenodd" d="M8 3a5 5 0 1 1-4.546 2.914.5.5 0 0 0-.908-.417A6 6 0 1 0 8 2z"/>
+              <path d="M8 4.466V.534a.25.25 0 0 0-.41-.192L5.23 2.308a.25.25 0 0 0 0 .384l2.36 1.966A.25.25 0 0 0 8 4.466"/>
+            </svg>
+          </button>
+          <button type="button" class="btn btn-dark float-end" data-bs-toggle="modal" data-bs-target="#exampleModal"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-gear-fill" viewBox="0 0 16 24">
+            <path d="M9.405 1.05c-.413-1.4-2.397-1.4-2.81 0l-.1.34a1.464 1.464 0 0 1-2.105.872l-.31-.17c-1.283-.698-2.686.705-1.987 1.987l.169.311c.446.82.023 1.841-.872 2.105l-.34.1c-1.4.413-1.4 2.397 0 2.81l.34.1a1.464 1.464 0 0 1 .872 2.105l-.17.31c-.698 1.283.705 2.686 1.987 1.987l.311-.169a1.464 1.464 0 0 1 2.105.872l.1.34c.413 1.4 2.397 1.4 2.81 0l.1-.34a1.464 1.464 0 0 1 2.105-.872l.31.17c1.283.698 2.686-.705 1.987-1.987l-.169-.311a1.464 1.464 0 0 1 .872-2.105l.34-.1c1.4-.413 1.4-2.397 0-2.81l-.34-.1a1.464 1.464 0 0 1-.872-2.105l.17-.31c.698-1.283-.705-2.686-1.987-1.987l-.311.169a1.464 1.464 0 0 1-2.105-.872zM8 10.93a2.929 2.929 0 1 1 0-5.86 2.929 2.929 0 0 1 0 5.858z"/>
+          </svg>
+        </button>
         </div>
         <div class="col-12">
-          <div class="card css-selector mx-auto" style="width: 100%;">
+          <div class="card css-selector mx-auto resize">
             <!-- betting -->
             <div class="card-body shadow-lg mx-auto">
+              <!-- player -->
+              <div class="row mb-2">
+                <div class="col-6" id="pOne">
+                  <h5 class="text-white"><span class="btn btn-primary">Player 1</span> : <span class="text-white">10000</span>R</h5>
+                </div>
+                <div class="col-6" id="pTwo">
+                  <h5 class="text-white"><span class="btn btn-outline-light disabled">Player 2</span> : <span class="text-white">10000</span>R</h5>
+                </div>
+                <div class="col-6" id="pThree">
+                  <h5 class="text-white"><span class="btn btn-outline-light disabled">Player 3</span> : <span class="text-white">10000</span>R</h5>
+                </div>
+                <div class="col-6" id="pFour">
+                  <h5 class="text-white"><span class="btn btn-outline-light disabled">Player 4</span> : <span class="text-white">10000</span>R</h5>
+                </div>
+              </div>
+
+              <!-- game section -->
+
               <div class="row">
                 <div class="col-4">
                   <!-- select -->
@@ -176,7 +211,7 @@
             </div>
     
     
-            <div class="row">
+            <div class="row mt-3">
               <!-- result -->
               <div class="col-xl-8 col-sm-12">
                 <div class="card frame-gradient" style="width: auto;">
@@ -211,13 +246,38 @@
         </div>
 
         <div class="col-12">
-          written by Sok Visal
+          
         </div>
       </div>
 
+      <!-- Modal -->
+    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h1 class="modal-title fs-5" id="exampleModalLabel">ការកំណត់</h1>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+            សារ៉េ
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">បិទ</button>
+            <button type="button" class="btn btn-primary">រក្សាទុក</button>
+          </div>
+        </div>
+      </div>
+    </div>
       
         
     </div>
+
+
+    <footer class="footer mt-auto py-3 bg-body-tertiary">
+      <div class="container">
+        <span class="text-body-secondary">Jak Khla Khlouk ot? written by @Sok Visal 2024</span>
+      </div>
+    </footer>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
 
