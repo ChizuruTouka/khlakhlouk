@@ -110,7 +110,7 @@
     </style>
 </head>
 <body>
-    <div class="container my-5">
+    <div class="container mb-5 mt-2">
 
       <div class="row">
         <div class="col-12 mb-2">
@@ -124,6 +124,7 @@
             <path d="M9.405 1.05c-.413-1.4-2.397-1.4-2.81 0l-.1.34a1.464 1.464 0 0 1-2.105.872l-.31-.17c-1.283-.698-2.686.705-1.987 1.987l.169.311c.446.82.023 1.841-.872 2.105l-.34.1c-1.4.413-1.4 2.397 0 2.81l.34.1a1.464 1.464 0 0 1 .872 2.105l-.17.31c-.698 1.283.705 2.686 1.987 1.987l.311-.169a1.464 1.464 0 0 1 2.105.872l.1.34c.413 1.4 2.397 1.4 2.81 0l.1-.34a1.464 1.464 0 0 1 2.105-.872l.31.17c1.283.698 2.686-.705 1.987-1.987l-.169-.311a1.464 1.464 0 0 1 .872-2.105l.34-.1c1.4-.413 1.4-2.397 0-2.81l-.34-.1a1.464 1.464 0 0 1-.872-2.105l.17-.31c.698-1.283-.705-2.686-1.987-1.987l-.311.169a1.464 1.464 0 0 1-2.105-.872zM8 10.93a2.929 2.929 0 1 1 0-5.86 2.929 2.929 0 0 1 0 5.858z"/>
           </svg>
         </button>
+        <h5>ចាក់អត់?</h5>
         </div>
         <div class="col-12">
           <div class="card css-selector mx-auto resize">
@@ -132,16 +133,16 @@
               <!-- player -->
               <div class="row mb-2">
                 <div class="col-6" id="pOne">
-                  <h5 class="text-white"><span class="btn btn-primary">Player 1</span> : <span class="text-white">10000</span>R</h5>
+                  <h6 class="text-white"><span class="btn btn-primary">Player 1</span> : <span class="text-white">10000</span>R</h6>
                 </div>
                 <div class="col-6" id="pTwo">
-                  <h5 class="text-white"><span class="btn btn-outline-light disabled">Player 2</span> : <span class="text-white">10000</span>R</h5>
+                  <h6 class="text-white"><span class="btn btn-outline-light disabled">Player 2</span> : <span class="text-white">10000</span>R</h6>
                 </div>
                 <div class="col-6" id="pThree">
-                  <h5 class="text-white"><span class="btn btn-outline-light disabled">Player 3</span> : <span class="text-white">10000</span>R</h5>
+                  <h6 class="text-white"><span class="btn btn-outline-light disabled">Player 3</span> : <span class="text-white">10000</span>R</h6>
                 </div>
                 <div class="col-6" id="pFour">
-                  <h5 class="text-white"><span class="btn btn-outline-light disabled">Player 4</span> : <span class="text-white">10000</span>R</h5>
+                  <h6 class="text-white"><span class="btn btn-outline-light disabled">Player 4</span> : <span class="text-white">10000</span>R</h6>
                 </div>
               </div>
 
@@ -236,7 +237,7 @@
                 <div class="d-grid gap-3">
                   <button class="btn btn-light btnStart shadow" type="button" onclick="spin()">ក្រឡុក</button>
                   <!-- <button class="btn btn-light btnStop disabled shadow" type="button" onclick="stop()">ឈប់</button> -->
-                  <button class="btn btn-danger shadow" type="button" onClick="refreshPage()">សារថ្មី</button>
+                  <button class="btn btn-danger shadow" type="button" onclick="reset()">សារថ្មី</button>
                 </div>
               </div>
             </div>
@@ -255,11 +256,26 @@
       <div class="modal-dialog">
         <div class="modal-content">
           <div class="modal-header">
-            <h1 class="modal-title fs-5" id="exampleModalLabel">ការកំណត់</h1>
+            <h1 class="modal-title fs-5" id="exampleModalLabel">ការកំណត់ (អត់ទាន់ប្រើកើត)</h1>
             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
           </div>
           <div class="modal-body">
-            សារ៉េ
+            <div class="container-fluid">
+              <div class="row">
+                <div class="col-4">
+                  ប៊ូតុងឈប់
+                </div>
+                <div class="col-8">
+                  <div class="btn-group-vertical" role="group" aria-label="Vertical radio toggle button group">
+                    <input type="radio" class="btn-check" name="vbtn-radio" id="vbtn-radio1" autocomplete="off" checked>
+                    <label class="btn btn-outline-primary" for="vbtn-radio1">គ្មាន</label>
+                    <input type="radio" class="btn-check" name="vbtn-radio" id="vbtn-radio2" autocomplete="off">
+                    <label class="btn btn-outline-primary" for="vbtn-radio2">មាន</label>
+                  </div>
+                </div>
+              </div>
+              
+            </div>
           </div>
           <div class="modal-footer">
             <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">បិទ</button>
@@ -275,7 +291,7 @@
 
     <footer class="footer mt-auto py-3 bg-body-tertiary">
       <div class="container">
-        <span class="text-body-secondary">Jak Khla Khlouk ot? written by @Sok Visal 2024</span>
+        <span class="text-body-secondary">ចាក់អត់? 2024 v0.05 written by @Sok Visal</span>
       </div>
     </footer>
 
@@ -353,8 +369,35 @@
           
         }
 
-        
       }
+
+      function reset() {
+        var jakOne = document.querySelector(".one");
+        var jakTwo = document.querySelector(".two");
+        var jakThree = document.querySelector(".three");
+        var jakFour = document.querySelector(".four");
+        var jakFive = document.querySelector(".five");
+        var jakSix = document.querySelector(".six");
+
+        document.querySelector(".imgOne").src = "1.jpg";
+        document.querySelector(".imgTwo").src = "1.jpg";
+        document.querySelector(".imgThree").src = "1.jpg";
+
+        jakOne.classList.remove("selected");
+        jakTwo.classList.remove("selected");
+        jakThree.classList.remove("selected");
+        jakFour.classList.remove("selected");
+        jakFive.classList.remove("selected");
+        jakSix.classList.remove("selected");
+
+        jakOne.innerHTML = "";
+        jakTwo.innerHTML = "";
+        jakThree.innerHTML = "";
+        jakFour.innerHTML = "";
+        jakFive.innerHTML = "";
+        jakSix.innerHTML = "";
+      }
+
 
     </script>
 </body>
